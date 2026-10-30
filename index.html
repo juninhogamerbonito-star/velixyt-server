@@ -1,0 +1,216 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VELIX SERVERS</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Crect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%237c3aed%22/%3E%3Ctext x=%2250%22 y=%2268%22 font-size=%2260%22 font-family=%22Arial%22 font-weight=%22bold%22 text-anchor=%22middle%22 fill=%22white%22%3EV%3C/text%3E%3C/svg%3E">
+<style>
+:root{--bg:#050508;--panel:#0e1018;--line:#292b3a;--purple:#8b5cf6;--blue:#37d7ff;--text:#f6f7fb;--muted:#a6adbd}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,Segoe UI,Arial,sans-serif;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(#ffffff08 1px,transparent 1px),linear-gradient(90deg,#ffffff08 1px,transparent 1px);background-size:35px 35px;mask-image:linear-gradient(#000,transparent 90%)}
+header{height:76px;padding:0 clamp(20px,6vw,85px);display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #ffffff16;background:#07070bd9;backdrop-filter:blur(14px);position:sticky;top:0;z-index:10}
+.logo{font-weight:1000;letter-spacing:2px;font-size:1.1rem}.logo span{color:var(--purple)}
+.badge{font-size:.72rem;letter-spacing:1.5px;color:#b8f8d6;display:flex;align-items:center;gap:9px}
+.dot{width:8px;height:8px;border-radius:50%;background:#45f2a0;box-shadow:0 0 13px #45f2a0;animation:pulse 1.6s infinite}
+.hero{min-height:570px;padding:90px 20px 78px;display:grid;place-items:center;text-align:center;position:relative;isolation:isolate}
+.orb{position:absolute;z-index:-1;width:320px;height:320px;border-radius:50%;background:#7c3aed35;filter:blur(70px);animation:float 7s ease-in-out infinite}
+.eyebrow{display:inline-block;padding:9px 15px;border:1px solid #a78bfa66;border-radius:100px;background:#8b5cf61c;color:#d7c7ff;font-size:.72rem;letter-spacing:2px}
+h1{font-size:clamp(3.4rem,11vw,7.7rem);line-height:.87;letter-spacing:-.075em;margin:27px 0 24px;font-weight:1000;text-shadow:0 0 50px #8b5cf638}
+.gradient{background:linear-gradient(100deg,#fff,#b9a0ff 55%,#37d7ff);color:transparent;background-clip:text;-webkit-background-clip:text}
+.subtitle{max-width:660px;margin:0 auto 30px;color:var(--muted);font-size:1.08rem;line-height:1.75}
+.buttons{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;border-radius:12px;border:1px solid #ffffff25;padding:14px 21px;font-weight:800;font-size:.92rem;text-decoration:none;cursor:pointer;transition:transform .2s,box-shadow .2s,border-color .2s;font-family:inherit}
+.btn:hover{transform:translateY(-3px);box-shadow:0 10px 32px #8b5cf638;border-color:#c4b5fd}
+.primary{background:linear-gradient(110deg,#7c3aed,#4f46e5);color:white;border-color:#a78bfa88}
+.secondary{background:#ffffff08;color:var(--text)}
+section{padding:65px 22px}
+.inner{max-width:1000px;margin:auto}
+.kicker{text-align:center;text-transform:uppercase;color:#bba4ff;font-size:.72rem;letter-spacing:3px;font-weight:800}
+h2{text-align:center;font-size:clamp(2rem,5vw,3.25rem);letter-spacing:-.045em;margin:13px 0}
+.desc{text-align:center;max-width:650px;margin:0 auto 35px;color:var(--muted);line-height:1.75}
+.card{position:relative;overflow:hidden;max-width:830px;margin:auto;border:1px solid #9a7bfa66;border-radius:24px;padding:clamp(24px,5vw,48px);background:linear-gradient(145deg,#171322,#0b0c12);box-shadow:0 0 70px #6d28d91a}
+.card:after{content:"";position:absolute;right:-100px;top:-130px;width:260px;height:260px;background:#8b5cf62e;filter:blur(30px);border-radius:50%;pointer-events:none}
+.card h2,.card p,.card .counter-area,.card .join-row,.card #message,.card .note{position:relative;z-index:1}
+.counter-area{display:flex;flex-direction:column;align-items:center;gap:8px;margin:25px 0 30px}
+.counter-label{color:#aeb6c7;text-transform:uppercase;letter-spacing:2px;font-size:.72rem}
+#counter{font-size:clamp(5rem,19vw,9.5rem);line-height:1;font-weight:1000;letter-spacing:-.09em;font-variant-numeric:tabular-nums;color:transparent;background:linear-gradient(#fff 5%,#c4b5fd 58%,#7c3aed);background-clip:text;-webkit-background-clip:text;filter:drop-shadow(0 0 24px #8b5cf644)}
+.join-row{display:flex;justify-content:center}
+#join{max-width:100%;line-height:1.5}
+#join:disabled{opacity:.62;cursor:not-allowed;transform:none;box-shadow:none}
+#message{min-height:24px;margin:15px 0 0;text-align:center;color:#bff8d7;font-size:.9rem;line-height:1.5}
+.note{text-align:center;color:#818a9b;font-size:.78rem;line-height:1.6;max-width:600px;margin:14px auto 0}
+.challenge-card{max-width:830px;margin:28px auto 0;border:1px solid #37d7ff55;border-radius:20px;padding:clamp(22px,4vw,34px);background:linear-gradient(135deg,#0b1720,#10101a 65%,#160f25);text-align:center;position:relative;overflow:hidden}
+.challenge-card:before{content:"";position:absolute;width:180px;height:180px;left:-90px;bottom:-120px;border-radius:50%;background:#37d7ff33;filter:blur(25px)}
+.challenge-card h3{font-size:1.35rem;margin:8px 0 10px;position:relative}
+.challenge-card p{color:var(--muted);line-height:1.65;position:relative}
+.challenge-result{min-height:62px;display:grid;place-items:center;margin:18px auto;padding:16px;border:1px dashed #37d7ff66;background:#37d7ff0b;border-radius:13px;color:#e2faff;font-weight:750;line-height:1.5;max-width:650px;position:relative}
+.challenge-card .btn{position:relative}
+.features{display:grid;grid-template-columns:repeat(3,1fr);gap:13px;margin-top:25px}
+.feature{border:1px solid var(--line);background:#ffffff04;border-radius:14px;padding:20px;text-align:center}
+.feature strong{display:block;margin-bottom:7px}.feature span{color:var(--muted);font-size:.84rem;line-height:1.5}
+.server{max-width:830px;margin:auto;border:1px solid var(--line);border-radius:20px;padding:clamp(22px,4vw,36px);background:linear-gradient(140deg,#10131a,#08090d);display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.server-info{flex:1;min-width:220px}.tag{display:inline-block;color:#c4b5fd;background:#8b5cf61c;border:1px solid #8b5cf655;border-radius:6px;padding:6px 9px;font-size:.7rem;letter-spacing:1px;font-weight:900}
+.server h3{font-size:1.45rem;margin:14px 0 8px}.server p{color:var(--muted);line-height:1.65;margin:0;overflow-wrap:anywhere}
+.server-link{margin-top:20px}
+footer{border-top:1px solid #ffffff15;padding:28px 20px;text-align:center;color:#777f90;font-size:.8rem}
+.curiosity{text-align:center;color:#c9b8f5;font-size:.82rem;line-height:1.45;letter-spacing:.2px;padding:18px 20px;background:#08080f;border-top:1px solid #8b5cf655}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}.reveal.show{opacity:1;transform:translateY(0)}
+@keyframes pulse{50%{opacity:.4;box-shadow:0 0 3px #45f2a0}}
+@keyframes float{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(22px,-18px) scale(1.08)}}
+@media(max-width:600px){header{height:68px}.badge{font-size:.6rem}.hero{min-height:520px;padding-top:72px}.features{grid-template-columns:1fr}.buttons{width:100%;max-width:350px;margin:auto}.buttons .btn{width:100%}.server{align-items:flex-start}.server-link{width:100%}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;scroll-behavior:auto!important;transition:none!important}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">VELIX<span>.</span> SERVERS</div>
+  <div class="badge"><span class="dot"></span> COMUNIDADE GAMER</div>
+</header>
+<main>
+  <section class="hero">
+    <div class="orb"></div>
+    <div class="reveal">
+      <div class="eyebrow">✦ SEU ESPAÇO NO GAME</div>
+      <h1>VELIX<br><span class="gradient">SERVERS</span></h1>
+      <p class="subtitle">Um servidor feito para quem curte games, criatividade e construir algo junto. Entre para a comunidade e deixe sua marca!</p>
+      <div class="buttons">
+        <a class="btn primary" href="#criar">Junte-se à criação ↗</a>
+        <a class="btn secondary" href="#servidor">Ver servidor Brookhaven</a>
+      </div>
+    </div>
+  </section>
+  <section id="criar">
+    <div class="inner">
+      <div class="kicker reveal">A comunidade é feita por vocês</div>
+      <div class="card reveal">
+        <h2>Deixe sua marca aqui!</h2>
+        <p class="desc">Clique no botão: <strong>Junte-se à criação do Velix Servers</strong> e sua marca estará aqui e contará com nós!</p>
+        <div class="counter-area">
+          <div class="counter-label">Pessoas que já participaram</div>
+          <div id="counter" aria-live="polite">0</div>
+        </div>
+        <div class="join-row"><button id="join" class="btn primary" type="button">Junte-se à criação do Velix Servers</button></div>
+        <div id="message" role="status"></div>
+        <p class="note">Você pode participar uma vez a cada 24 horas neste navegador. Seu número fica salvo neste dispositivo.</p>
+      </div>
+      <div class="features reveal">
+        <div class="feature"><strong>SUA MARCA</strong><span>Faça parte da comunidade.</span></div>
+        <div class="feature"><strong>SUA IDEIA</strong><span>Ajude a criar algo novo.</span></div>
+        <div class="feature"><strong>SUA COMUNIDADE</strong><span>Jogue, crie e compartilhe.</span></div>
+      </div>
+      <div class="challenge-card reveal" id="desafio">
+        <div class="kicker">MODO ALEATÓRIO</div>
+        <h3>🎮 Desafio gamer do Velix</h3>
+        <p>Tá sem ideia do que fazer? Sorteie uma missão e tente completar no Brookhaven!</p>
+        <div class="challenge-result" id="challengeResult" aria-live="polite">Aperte o botão para receber seu desafio.</div>
+        <button class="btn primary" id="challengeButton" type="button">Sortear desafio 🎲</button>
+      </div>
+    </div>
+  </section>
+  <section id="servidor">
+    <div class="inner">
+      <div class="kicker reveal">Entre no jogo</div>
+      <h2 class="reveal">Servidor Brookhaven</h2>
+      <p class="desc reveal">SERVIDOR 1 LINK BROOKHAVEN COM 600 PROPS</p>
+      <div class="server reveal">
+        <div class="server-info">
+          <span class="tag">SERVIDOR 1</span>
+          <h3>Brookhaven — 600 Props</h3>
+          <p>Entre no servidor e venha jogar!</p>
+          <a class="btn primary server-link" href="https://www.roblox.com/share?code=7a3a8cde4eb74c4993c86fac05892ac0&amp;type=Server" target="_blank" rel="noopener noreferrer">Abrir servidor no Roblox ↗</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<footer>© <span id="year"></span> VELIX SERVERS · Feito para a comunidade gamer.</footer>
+<div class="curiosity">Curiosidade: O Velix se inspira muito no WELIX-KingOfyoutube.</div>
+<script>
+(() => {
+  const COUNT_KEY = 'velix_servers_count_v1';
+  const VOTE_KEY = 'velix_servers_last_vote_v1';
+  const counter = document.getElementById('counter');
+  const button = document.getElementById('join');
+  const message = document.getElementById('message');
+  const DAY = 24 * 60 * 60 * 1000;
+
+  function count() {
+    const value = Number.parseInt(localStorage.getItem(COUNT_KEY) || '0', 10);
+    return Number.isFinite(value) && value >= 0 ? value : 0;
+  }
+  function lastVote() {
+    return Number.parseInt(localStorage.getItem(VOTE_KEY) || '0', 10) || 0;
+  }
+  function refresh() {
+    counter.textContent = count().toLocaleString('pt-BR');
+    const elapsed = Date.now() - lastVote();
+    const allowed = !lastVote() || elapsed >= DAY;
+    button.disabled = !allowed;
+    button.textContent = allowed ? 'Junte-se à criação do Velix Servers' : 'Você já participou hoje';
+    if (!allowed) {
+      const left = DAY - elapsed;
+      const hours = Math.floor(left / 3600000);
+      const minutes = Math.ceil((left % 3600000) / 60000);
+      message.textContent = `Obrigado por participar! Tente novamente em aproximadamente ${hours}h ${minutes}min.`;
+    }
+  }
+  button.addEventListener('click', () => {
+    const previous = lastVote();
+    if (previous && Date.now() - previous < DAY) {
+      refresh();
+      return;
+    }
+    localStorage.setItem(COUNT_KEY, String(count() + 1));
+    localStorage.setItem(VOTE_KEY, String(Date.now()));
+    refresh();
+    message.textContent = 'Você faz parte da criação do Velix Servers. Obrigado por participar!';
+    counter.animate([{transform:'scale(.92)'},{transform:'scale(1.08)'},{transform:'scale(1)'}], {duration:420, easing:'ease-out'});
+  });
+
+  const challenges = [
+    'Construa uma casa usando somente 3 cores!',
+    'Faça uma mansão com um cômodo secreto.',
+    'Crie uma lanchonete e atenda 3 amigos.',
+    'Monte um esconderijo que ninguém encontre facilmente.',
+    'Faça uma rua com 5 casas diferentes.',
+    'Crie uma casa futurista usando bastante neon.',
+    'Faça uma festa no seu mapa e convide a galera!',
+    'Construa uma piscina diferente de todas as outras.',
+    'Monte uma garagem dos sonhos com área de exposição.',
+    'Crie uma casa minúscula que tenha tudo dentro!'
+    'Flode mensagem no servidor do velix e no grupo do tiktok!'
+  ];
+  const challengeButton = document.getElementById('challengeButton');
+  const challengeResult = document.getElementById('challengeResult');
+  challengeButton.addEventListener('click', () => {
+    const previous = challengeResult.dataset.lastIndex;
+    let index = Math.floor(Math.random() * challenges.length);
+    if (challenges.length > 1 && String(index) === previous) index = (index + 1) % challenges.length;
+    challengeResult.dataset.lastIndex = String(index);
+    challengeResult.textContent = challenges[index];
+    challengeResult.animate(
+      [{opacity:0, transform:'translateY(8px) scale(.98)'},{opacity:1, transform:'translateY(0) scale(1)'}],
+      {duration:280, easing:'ease-out'}
+    );
+  });
+
+  document.getElementById('year').textContent = new Date().getFullYear();
+  refresh();
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+})();
+</script>
+</body>
+</html>
