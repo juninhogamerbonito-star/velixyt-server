@@ -5,12 +5,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>VELIX SERVERS</title>
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Crect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%237c3aed%22/%3E%3Ctext x=%2250%22 y=%2268%22 font-size=%2260%22 font-family=%22Arial%22 font-weight=%22bold%22 text-anchor=%22middle%22 fill=%22white%22%3EV%3C/text%3E%3C/svg%3E">
+<link rel="icon" type="image/png" href="favicon.png">
 <style>
 :root{--bg:#050508;--panel:#0e1018;--line:#292b3a;--purple:#8b5cf6;--blue:#37d7ff;--text:#f6f7fb;--muted:#a6adbd}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,Segoe UI,Arial,sans-serif;overflow-x:hidden}
+body{margin:0;padding-bottom:62px;background:var(--bg);color:var(--text);font-family:Inter,Segoe UI,Arial,sans-serif;overflow-x:hidden}
 body:before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(#ffffff08 1px,transparent 1px),linear-gradient(90deg,#ffffff08 1px,transparent 1px);background-size:35px 35px;mask-image:linear-gradient(#000,transparent 90%)}
 header{height:76px;padding:0 clamp(20px,6vw,85px);display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #ffffff16;background:#07070bd9;backdrop-filter:blur(14px);position:sticky;top:0;z-index:10}
 .logo{font-weight:1000;letter-spacing:2px;font-size:1.1rem}.logo span{color:var(--purple)}
@@ -57,7 +57,7 @@ h2{text-align:center;font-size:clamp(2rem,5vw,3.25rem);letter-spacing:-.045em;ma
 .server h3{font-size:1.45rem;margin:14px 0 8px}.server p{color:var(--muted);line-height:1.65;margin:0;overflow-wrap:anywhere}
 .server-link{margin-top:20px}
 footer{border-top:1px solid #ffffff15;padding:28px 20px;text-align:center;color:#777f90;font-size:.8rem}
-.curiosity{text-align:center;color:#c9b8f5;font-size:.82rem;line-height:1.45;letter-spacing:.2px;padding:18px 20px;background:#08080f;border-top:1px solid #8b5cf655}
+.curiosity{position:fixed;left:0;right:0;bottom:0;z-index:1000;padding:13px 18px calc(13px + env(safe-area-inset-bottom));text-align:center;color:#c9b8f5;font-size:.82rem;line-height:1.45;letter-spacing:.2px;background:rgba(8,8,15,.9);border-top:1px solid #8b5cf655;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 -8px 28px #0008}
 .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}.reveal.show{opacity:1;transform:translateY(0)}
 @keyframes pulse{50%{opacity:.4;box-shadow:0 0 3px #45f2a0}}
 @keyframes float{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(22px,-18px) scale(1.08)}}
@@ -182,7 +182,6 @@ footer{border-top:1px solid #ffffff15;padding:28px 20px;text-align:center;color:
     'Construa uma piscina diferente de todas as outras.',
     'Monte uma garagem dos sonhos com área de exposição.',
     'Crie uma casa minúscula que tenha tudo dentro!'
-    'Flode mensagem no servidor do velix e no grupo do tiktok!'
   ];
   const challengeButton = document.getElementById('challengeButton');
   const challengeResult = document.getElementById('challengeResult');
